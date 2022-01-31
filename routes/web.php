@@ -20,8 +20,14 @@ Route::get('/', function () {
 
 Route::get('panel', function () {
     return view('panel.colaborador.index');
-});
+})->name('colaborador');
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::resource('colaborador', 'CollaboratorController');
+
+Route::get('colaborador-create', function () {
+    return view('panel.colaborador.create');
+})->name('colaborador.create');

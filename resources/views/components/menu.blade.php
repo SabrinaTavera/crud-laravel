@@ -4,26 +4,45 @@
         <!-- Sidebar navigation-->
         <nav class="sidebar-nav">
             <ul id="sidebarnav">
-                <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="index.html"
+                <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="{{ route('colaborador') }}"
                         aria-expanded="false"><i data-feather="home" class="feather-icon"></i><span
-                            class="hide-menu">Dashboard</span></a></li>
+                            class="hide-menu">Colaborador</span></a></li>
+                          
+                
                 <li class="list-divider"></li>
-                <li class="nav-small-cap"><span class="hide-menu">Applications</span></li>
+                <li class="nav-small-cap"><span class="hide-menu">Aplicações</span></li>
 
                 <li class="sidebar-item"> <a class="sidebar-link" href="ticket-list.html"
                         aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span
-                            class="hide-menu">Ticket List
+                            class="hide-menu">Produto
                         </span></a>
                 </li>
-                <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="app-chat.html"
+                <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                    aria-expanded="false"><i data-feather="box" class="feather-icon"></i><span
+                        class="hide-menu">Pedidos </span></a>
+                <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                    <li class="sidebar-item"><a href="ui-buttons.html" class="sidebar-link"><span
+                                class="hide-menu"> Buttons
+                            </span></a>
+                    </li>
+                    
+                    <li class="sidebar-item"><a href="ui-bootstrap.html" class="sidebar-link"><span
+                                class="hide-menu">Bootstrap
+                                UI</span></a></li>
+                    <li class="sidebar-item"><a href="ui-breadcrumb.html" class="sidebar-link"><span
+                                class="hide-menu">Breadcrumb</span></a></li>
+                   
+                </ul>
+            </li>
+                {{--  <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="app-chat.html"
                         aria-expanded="false"><i data-feather="message-square" class="feather-icon"></i><span
-                            class="hide-menu">Chat</span></a></li>
+                            class="hide-menu">Pedidos</span></a></li>
                 <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="app-calendar.html"
                         aria-expanded="false"><i data-feather="calendar" class="feather-icon"></i><span
-                            class="hide-menu">Calendar</span></a></li>
+                            class="hide-menu">Calendar</span></a></li>  --}}
 
-                <li class="list-divider"></li>
-                <li class="nav-small-cap"><span class="hide-menu">Components</span></li>
+                {{--  <li class="list-divider"></li>  --}}
+                {{--  <li class="nav-small-cap"><span class="hide-menu">Components</span></li>
                 <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
                         aria-expanded="false"><i data-feather="file-text" class="feather-icon"></i><span
                             class="hide-menu">Forms </span></a>
@@ -205,12 +224,12 @@
                                     class="hide-menu"> item
                                     1.4</span></a></li>
                     </ul>
-                </li>
+                </li>  --}}
                 <li class="list-divider"></li>
-                <li class="nav-small-cap"><span class="hide-menu">Extra</span></li>
-                <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="../../docs/docs.html"
+                {{--  <li class="nav-small-cap"><span class="hide-menu">Extra</span></li>  --}}
+                {{--  <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="../../docs/docs.html"
                         aria-expanded="false"><i data-feather="edit-3" class="feather-icon"></i><span
-                            class="hide-menu">Documentation</span></a></li>
+                            class="hide-menu">Documentation</span></a></li>  --}}
                 <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="authentication-login1.html"
                         aria-expanded="false"><i data-feather="log-out" class="feather-icon"></i><span
                             class="hide-menu">Logout</span></a></li>
