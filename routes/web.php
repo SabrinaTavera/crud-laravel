@@ -21,3 +21,7 @@ Route::get('/', function () {
 Route::get('panel', function () {
     return view('panel.colaborador.index');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
