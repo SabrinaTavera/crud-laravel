@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+
+    protected $product;
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +17,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::get();
+        $products = Product::all();
        
         return view('panel.product.index', ['products' => $products]);
     }
@@ -37,15 +40,8 @@ class ProductController extends Controller
      */
     public function store(Request $request, Product $product)
     {
-        // $request = new Product();
-        // $product->name          = $request->input('name');
-        // $product->stock         = $request->input('stock');
-        // $product->description   = $request->input('description');
-        // $product->price         = $request->input('price');
-
-        
+              
         $product->create($request->all());
-
         return redirect()->action([ProductController::class, 'index']);
     }
 
@@ -57,7 +53,12 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $product = Product::find($id);
+        if(isset($product)){
+            return view('panel.product.show', compact(['product']));
+        }
+   
+        
     }
 
     /**
@@ -68,7 +69,7 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('panel.product.edit');
     }
 
     /**

@@ -46,11 +46,11 @@
                                             <td>{{  'R$ '.number_format($product['price'], 2, ',', '.') }}</td>
                                             
                                             <td>
-                                                <a>
+                                                <a href="{{ route('product.show', $product['id']) }}">
                                                     <i class="icon-magnifier" ></i>
                                                 </a>
                                             &nbsp;
-                                            <a>
+                                            <a href="{{ route('product.edit', $product['id']) }}">
                                                     <i  class="icon-note"></i>
                                             </a>
                                             &nbsp;
