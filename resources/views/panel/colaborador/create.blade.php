@@ -19,7 +19,7 @@
                     <br>
                     <br>
                     <br>
-                    <form accept="" method="">
+                    <form action="{{ route('colaborador.store') }}" method="POST">
                         @csrf 
                         <div class="row">
                             <div class="col-md-6 col-sm-12 form-group">

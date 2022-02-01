@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Collaborator;
 use Illuminate\Http\Request;
 
-class CollaboratorController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +13,7 @@ class CollaboratorController extends Controller
      */
     public function index()
     {
-        // return view('painel.categorias.index', ['categories' => $categories, 'total' => $total]);
-        // return view('panel.calaborador.index');
+        return view('panel.product.index');
     }
 
     /**
@@ -36,16 +34,16 @@ class CollaboratorController extends Controller
      */
     public function store(Request $request)
     {
-        
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Collaborator  $collaborator
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Collaborator $collaborator)
+    public function show($id)
     {
         //
     }
@@ -53,10 +51,10 @@ class CollaboratorController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Collaborator  $collaborator
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Collaborator $collaborator)
+    public function edit($id)
     {
         //
     }
@@ -65,10 +63,10 @@ class CollaboratorController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Collaborator  $collaborator
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Collaborator $collaborator)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -76,10 +74,10 @@ class CollaboratorController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Collaborator  $collaborator
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Collaborator $collaborator)
+    public function destroy($id)
     {
         //
     }

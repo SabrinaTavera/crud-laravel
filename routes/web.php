@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\CollaboratorController;
+use App\Http\Controllers\ProductController;
+use App\Models\Produto;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,8 +30,13 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource('colaborador', 'CollaboratorController');
+Route::resource('colaborador', CollaboratorController::class);
 
 Route::get('colaborador-create', function () {
     return view('panel.colaborador.create');
 })->name('colaborador.create');
+
+
+Route::resource('product', ProductController::class);
+
+
