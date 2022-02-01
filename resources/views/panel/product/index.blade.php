@@ -25,49 +25,51 @@
                     <br>
                     <!--<h6 class="card-title mt-5"><i class="mr-1 font-18 mdi mdi-numeric-1-box-multiple-outline"></i> Table With
                         Outside Padding</h6>-->
-                    <div class="table-responsive">
-                        @if (!isset($products))
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Nome Produto</th>
-                                        <th scope="col">Estoque</th>
-                                        <th scope="col">Preço</th>                                    
-                                        <th scope="col">Ações</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    
-                                    @foreach ($products as $product)
-                                    <tr>
-                                        <td>{{$product['name']}}</td>
-                                        <td>{{$product['stock']}}</td>
-                                        <td>{{  'R$ '.number_format($product['price'], 2, ',', '.') }}</td>
+                                {{--  {{dd($products)}}  --}}
+                        @if (sizeof($products) )
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Nome Produto</th>
+                                            <th scope="col">Estoque</th>
+                                            <th scope="col">Preço</th>                                    
+                                            <th scope="col">Ações</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
                                         
-                                        <td>
+                                        @foreach ($products as $product)
+                                        <tr>
+                                            <td>{{$product['name']}}</td>
+                                            <td>{{$product['stock']}}</td>
+                                            <td>{{  'R$ '.number_format($product['price'], 2, ',', '.') }}</td>
+                                            
+                                            <td>
+                                                <a>
+                                                    <i class="icon-magnifier" ></i>
+                                                </a>
+                                            &nbsp;
                                             <a>
-                                                <i class="icon-magnifier" ></i>
+                                                    <i  class="icon-note"></i>
                                             </a>
-                                        &nbsp;
-                                        <a>
-                                                <i  class="icon-note"></i>
-                                        </a>
-                                        &nbsp;
-                                            <a>
-                                                <i  class="icon-trash"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    @endforeach 
-                                
-                                </tbody>
-                            </table>
-                        @else
+                                            &nbsp;
+                                                <a>
+                                                    <i  class="icon-trash"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        @endforeach 
+                                    
+                                    </tbody>
+                                </table>
+                        
+                            </div>
+                         @else
                         <br>
                         <h5> Não há produtos cadastrados </h5>
-                            
+                        
                         @endif
-                    </div>
                        
                 </div>
             </div>

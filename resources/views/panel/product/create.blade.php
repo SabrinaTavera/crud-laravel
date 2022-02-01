@@ -36,7 +36,7 @@
                             </div>
                             <div class="col-md-6 col-sm-12 form-group">
                                 <div class="form-group">
-                                    <textarea class="form-control" rows="3" placeholder="Descrição do produto"></textarea>
+                                    <textarea class="form-control" rows="3" name="description" placeholder="Descrição do produto"></textarea>
                                 </div>
                                 <small id="name" class="form-text text-muted">Digite a descrição (informações) do produto</small>
                             </div>
