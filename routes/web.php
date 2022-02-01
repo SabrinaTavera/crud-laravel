@@ -38,5 +38,6 @@ Route::get('colaborador-create', function () {
 
 
 Route::resource('product', ProductController::class);
+Route::post('product/{id}', [App\Http\Controllers\ProductController::class, 'update'])->name('prod.update');
 
 

@@ -10,7 +10,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-9 col-sm-12">
-                            <h4 class="card-title">Cadastro Produto</h4>
+                            <h4 class="card-title">Editar Produto</h4>
                         </div>
                        
                     </div>
@@ -19,26 +19,36 @@
                     <br>
                     <br>
                     <br>
-                    <form action="{{ route('product.store') }}" method="POST">
+                    <form action="{{ route('prod.update', $product->id) }}" method="POST">
                         @csrf 
                         <div class="row">
-                            <div class="col-md-6 col-sm-12 form-group">
-                                <input type="text" class="form-control" id="nametext" aria-describedby="name" name="name" placeholder="Nome">
-                                <small id="name" class="form-text text-muted">Digite o nome do Produto</small>
+                            <div class="col-md-2 col-sm-6 form-group">
+                                <h4 class="card-title aling-title">Nome:</h4>                                
                             </div>
-                            <div class="col-md-3 col-sm-12 form-group">
-                                <input type="text" class="form-control" id="nametext" aria-describedby="stock" name="stock" placeholder="Estoque">
-                                <small id="name" class="form-text text-muted">Digite quantidade estoque</small>
+                            <div class="col-md-6 col-sm-6 form-group">
+                                <input type="text" class="form-control" id="nametext" aria-describedby="name" value="{{$product->name}}" name="name" placeholder="Nome">
                             </div>
-                            <div class="col-md-3 col-sm-12 form-group">
-                                <input type="text" class="form-control" id="nametext" aria-describedby="price" name="price" placeholder="Preço">
-                                <small id="name" class="form-text text-muted">Digite o valor do produto</small>
+                            <div class="col-md-2 col-sm-6 form-group">
+                                <h4 class="card-title aling-title">Estoque:</h4>                                
+                            </div>
+                            <div class="col-md-2 col-sm-6 form-group">
+                                <input type="text" class="form-control" id="nametext" aria-describedby="stock" value="{{$product->stock}}" name="stock" placeholder="Estoque">
+                            </div>
+                            <div class="col-md-2 col-sm-12 form-group">
+                                <h4 class="card-title aling-title">Descrição:</h4>                                
                             </div>
                             <div class="col-md-6 col-sm-12 form-group">
                                 <div class="form-group">
-                                    <textarea class="form-control" rows="3" name="description" placeholder="Descrição do produto"></textarea>
+                                    <textarea class="form-control" rows="3" name="description" placeholder="Descrição do produto">{{$product->description}}</textarea>
                                 </div>
-                                <small id="name" class="form-text text-muted">Digite a descrição (informações) do produto</small>
+                                
+                            </div>
+                            <div class="col-md-2 col-sm-6 form-group">
+                                <h4 class="card-title aling-title">Preço:</h4>                                
+                            </div>
+                            <div class="col-md-2 col-sm-6 form-group">
+                                <input type="text" class="form-control" id="nametext" aria-describedby="price" value="{{  number_format($product['price'], 2, ',', '.') }}" name="price" placeholder="Preço">
+                                
                             </div>
                            
                             
