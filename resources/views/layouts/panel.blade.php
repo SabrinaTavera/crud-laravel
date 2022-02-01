@@ -18,6 +18,7 @@
     <link href="{{ asset('../assets/extra-libs/jvector/jquery-jvectormap-2.0.2.css') }}" rel="stylesheet" />
     
     <link href="{{ asset('../dist/css/style.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style2.css') }}" rel="stylesheet">
    
 </head>
 

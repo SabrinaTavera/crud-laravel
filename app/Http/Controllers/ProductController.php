@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -13,7 +14,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('panel.product.index');
+        $products = Product::get();
+       
+        return view('panel.product.index', ['products' => $products]);
     }
 
     /**
@@ -23,7 +26,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('panel.product.create');
     }
 
     /**
