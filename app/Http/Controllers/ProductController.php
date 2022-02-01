@@ -40,7 +40,7 @@ class ProductController extends Controller
      */
     public function store(Request $request, Product $product)
     {
-              
+        $request['price'] = str_replace(['.',','],'.', $request['price']);
         $product->create($request->all());
         return redirect()->action([ProductController::class, 'index']);
     }
@@ -85,7 +85,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // dd(str_replace(['.',','],'.', $request->price));
+        
         $product = Product::find($id);
         if(isset($product)){
             $request['price'] = str_replace(['.',','],'.', $request->price);

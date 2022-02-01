@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->integer('stock');
             $table->double('price');
             $table->string('description')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
