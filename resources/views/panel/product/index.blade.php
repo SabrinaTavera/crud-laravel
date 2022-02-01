@@ -46,15 +46,15 @@
                                             <td>{{  'R$ '.number_format($product['price'], 2, ',', '.') }}</td>
                                             
                                             <td>
-                                                <a href="{{ route('product.show', $product['id']) }}">
+                                                <a href="{{ route('product.show', $product->id) }}">
                                                     <i class="icon-magnifier" ></i>
                                                 </a>
                                             &nbsp;
-                                            <a href="{{ route('product.edit', $product['id']) }}">
+                                            <a href="{{ route('product.edit', $product->id) }}">
                                                     <i  class="icon-note"></i>
                                             </a>
                                             &nbsp;
-                                                <a>
+                                                <a href="{{ route('prod.destroy', $product->id) }}">
                                                     <i  class="icon-trash"></i>
                                                 </a>
                                             </td>
