@@ -30,15 +30,17 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// Route::resource('colaborador', CollaboratorController::class);
+Route::resource('colaborador', CollaboratorController::class);
 
-// Route::get('colaborador-create', function () {
-//     return view('panel.colaborador.create');
-// })->name('colaborador.create');
+Route::get('colaborador-create', function () {
+    return view('panel.colaborador.create');
+})->name('colaborador.create');
 
 
 Route::resource('product', ProductController::class);
 Route::post('product/{id}', [App\Http\Controllers\ProductController::class, 'update'])->name('prod.update');
 Route::get('product/apagar/{id}', [App\Http\Controllers\ProductController::class, 'destroy'])->name('prod.destroy');
+Route::get('product/inactive/index', [App\Http\Controllers\ProductController::class, 'inactive'])->name('inactive');
+Route::get('product/active/{id}', [App\Http\Controllers\ProductController::class, 'active'])->name('product.active');
 
 

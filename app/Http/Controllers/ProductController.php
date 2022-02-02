@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -107,5 +108,26 @@ class ProductController extends Controller
         $product = Product::find($id);
         $product->delete();
         return redirect()->action([ProductController::class, 'index']);
+    }
+
+    public function inactive(){
+
+        
+        
+        $products = DB::table('products')
+                ->whereNotNull('deleted_at')
+                ->get();
+        // dd($products);
+        return view('panel.product.index-inactive', ['products' => $products]);
+    }
+    public function active($id){
+
+        
+        $affected = DB::table('products')
+              ->where('id', $id)
+              ->update(['deleted_at' => null]);
+        
+        
+        return redirect()->action([ProductController::class, 'inactive']);
     }
 }
