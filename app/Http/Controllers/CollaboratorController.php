@@ -83,8 +83,12 @@ class CollaboratorController extends Controller
      * @param  \App\Models\Collaborator  $collaborator
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Collaborator $collaborator)
+    public function destroy($id)
     {
-        //
+        
+        $collaborator = User::find($id);
+        $collaborator->delete();
+        return redirect()->action([CollaboratorController::class, 'index']);
+        
     }
 }

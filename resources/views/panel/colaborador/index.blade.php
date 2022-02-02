@@ -61,7 +61,7 @@
                                                     <i  class="icon-note"></i>
                                             </a>
                                             &nbsp;
-                                                <a href="{{ route('colaborador.destroy', $collaborator->id) }}">
+                                                <a href="{{ route('collaborator.destroy', $collaborator->id) }}">
                                                     <i  class="icon-trash"></i>
                                                 </a>
                                             </td>
@@ -74,7 +74,7 @@
                             </div>
                          @else
                         <br>
-                        <h5> Não há produtos cadastrados </h5>
+                        <h5> Não há colaboradores cadastrados </h5>
                         
                         @endif
                        
