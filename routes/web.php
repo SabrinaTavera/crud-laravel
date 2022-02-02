@@ -22,9 +22,13 @@ Route::get('/', function () {
 });
 
 
-Route::get('panel', function () {
-    return view('panel.colaborador.index');
-})->name('colaborador');
+// Route::get('panel', function () {
+//     return view('panel.colaborador.index');
+// })->name('colaborador');
+
+
+Route::get('panel', [App\Http\Controllers\CollaboratorController::class, 'index'])->name('colaboratos');
+
 
 Auth::routes();
 

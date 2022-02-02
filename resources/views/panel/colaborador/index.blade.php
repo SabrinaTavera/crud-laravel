@@ -25,49 +25,58 @@
                     <br>
                     <!--<h6 class="card-title mt-5"><i class="mr-1 font-18 mdi mdi-numeric-1-box-multiple-outline"></i> Table With
                         Outside Padding</h6>-->
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Nome Usuário</th>
-                                    <th scope="col">E-mail</th>
-                                    <th scope="col">Ações</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                
-                                <tr>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>
-                                        <a>
-                                             <i  class="icon-magnifier"></i>
-                                        </a>
-                                        &nbsp;
-                                        <a>
-                                             <i  class="icon-note"></i>
-                                        </a>
-                                        &nbsp;
-                                        <a>
-                                             <i  class="icon-trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
+                                {{--  {{dd($products)}}  --}}
+                        @if (sizeof($contributors) )
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Nome Colaborador</th>
+                                            <th scope="col">Tipo</th>                                    
+                                            <th scope="col">Ações</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                        @foreach ($contributors as $collaborator)
+                                        <tr>
+                                            <td>{{$collaborator['name']}}</td>
+                                            <td>
+                                                @if ($collaborator['tipo'] == 'f')
+                                                    Fornecedor
+                                                @else
+                                                    Colaborador
+                                                @endif
+                                                
+                                            </td>
+                                            
+                                            
+                                            
+                                            <td>
+                                                <a href="{{ route('colaborador.show', $collaborator->id) }}">
+                                                    <i class="icon-magnifier" ></i>
+                                                </a>
+                                            &nbsp;
+                                            <a href="{{ route('colaborador.edit', $collaborator->id) }}">
+                                                    <i  class="icon-note"></i>
+                                            </a>
+                                            &nbsp;
+                                                <a href="{{ route('colaborador.destroy', $collaborator->id) }}">
+                                                    <i  class="icon-trash"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        @endforeach 
                                     
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                </tr>
-                                <tr>
-                                    
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>@twitter</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                                    </tbody>
+                                </table>
+                        
+                            </div>
+                         @else
+                        <br>
+                        <h5> Não há produtos cadastrados </h5>
+                        
+                        @endif
                        
                 </div>
             </div>

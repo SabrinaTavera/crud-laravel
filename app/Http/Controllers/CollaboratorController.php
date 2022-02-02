@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Collaborator;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class CollaboratorController extends Controller
@@ -14,8 +15,11 @@ class CollaboratorController extends Controller
      */
     public function index()
     {
-        // return view('painel.categorias.index', ['categories' => $categories, 'total' => $total]);
-        // return view('panel.calaborador.index');
+        $contributors = User::all();
+
+        
+        
+        return view('panel.colaborador.index', compact('contributors'));
     }
 
     /**
