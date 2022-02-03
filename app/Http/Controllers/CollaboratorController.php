@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Address;
 use App\Models\Collaborator;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CollaboratorController extends Controller
 {
@@ -29,7 +31,7 @@ class CollaboratorController extends Controller
      */
     public function create()
     {
-        //
+        return view('panel.colaborador.create');
     }
 
     /**
@@ -38,9 +40,42 @@ class CollaboratorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, User $user)
     {
+
         
+        if($request['check-provider'] =='on')
+            $request['tipo'] = 'f';
+        else
+            $request['tipo'] = 'c';
+
+        $user_id = $user->create($request->all())->id;
+
+        
+
+        $endereco1 = new  Address();
+        $endereco1->street  = $request->input('street');
+        $endereco1->number  = $request->input('number');
+        $endereco1->cep     = $request->input('cep');
+        $endereco1->city    = $request->input('city');
+        $endereco1->state   = $request->input('state');
+        $endereco1->user_id   = $user_id;
+        
+        
+        $endereco1->save();
+        
+        $endereco2 = new  Address();
+        $endereco2->street  = $request->input('street-2');
+        $endereco2->number  = $request->input('number-2');
+        $endereco2->cep     = $request->input('cep-2');
+        $endereco2->city    = $request->input('city-2');
+        $endereco2->state   = $request->input('state-2');
+        $endereco2->user_id   = $user_id;
+        
+        $endereco2->save();
+        
+        
+        return redirect()->action([CollaboratorController::class, 'index']);
     }
 
     /**
@@ -87,7 +122,9 @@ class CollaboratorController extends Controller
     {
         
         $collaborator = User::find($id);
-        $collaborator->delete();
+        if($collaborator['email'] != 'admin@admin')
+            $collaborator->delete();
+
         return redirect()->action([CollaboratorController::class, 'index']);
         
     }

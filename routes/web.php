@@ -30,15 +30,16 @@ Route::get('/', function () {
 Route::get('panel', [App\Http\Controllers\CollaboratorController::class, 'index'])->name('colaboratos');
 Route::get('collaborator/apagar/{id}', [App\Http\Controllers\CollaboratorController::class, 'destroy'])->name('collaborator.destroy');
 
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('colaborador', CollaboratorController::class);
 
-Route::get('colaborador-create', function () {
-    return view('panel.colaborador.create');
-})->name('colaborador.create');
+// Route::get('colaborador-create', function () {
+//     return view('panel.colaborador.create');
+// })->name('colaborador.create');
 
 
 Route::resource('product', ProductController::class);

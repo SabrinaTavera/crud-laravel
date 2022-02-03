@@ -23,15 +23,15 @@
                         @csrf 
                         <div class="row">
                             <div class="col-md-6 col-sm-12 form-group">
-                                <input type="text" class="form-control" id="nametext" aria-describedby="name" name="name" placeholder="Nome">
+                                <input type="text" class="form-control" id="nametext" aria-describedby="name" name="name" placeholder="Nome" required>
                                 <small id="name" class="form-text text-muted">Digite o nome do Produto</small>
                             </div>
                             <div class="col-md-3 col-sm-12 form-group">
-                                <input type="text" class="form-control" id="nametext" aria-describedby="stock" name="stock" placeholder="Estoque">
+                                <input type="text" class="form-control" id="nametext" aria-describedby="stock" name="stock" placeholder="Estoque" required>
                                 <small id="name" class="form-text text-muted">Digite quantidade estoque</small>
                             </div>
                             <div class="col-md-3 col-sm-12 form-group">
-                                <input type="text" class="form-control" id="nametext" aria-describedby="price" name="price" placeholder="Preço">
+                                <input type="text" class="form-control" id="nametext" aria-describedby="price" name="price" placeholder="Preço" required>
                                 <small id="name" class="form-text text-muted">Digite o valor do produto</small>
                             </div>
                             <div class="col-md-6 col-sm-12 form-group">

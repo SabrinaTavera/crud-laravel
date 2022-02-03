@@ -49,22 +49,20 @@
                                                 @endif
                                                 
                                             </td>
-                                            
-                                            
-                                            
                                             <td>
                                                 <a href="{{ route('colaborador.show', $collaborator->id) }}">
                                                     <i class="icon-magnifier" ></i>
                                                 </a>
-                                            &nbsp;
-                                            <a href="{{ route('colaborador.edit', $collaborator->id) }}">
-                                                    <i  class="icon-note"></i>
-                                            </a>
-                                            &nbsp;
+                                                &nbsp;
+                                                <a href="{{ route('colaborador.edit', $collaborator->id) }}">
+                                                        <i  class="icon-note"></i>
+                                                </a>
+                                                &nbsp;
                                                 <a href="{{ route('collaborator.destroy', $collaborator->id) }}">
                                                     <i  class="icon-trash"></i>
                                                 </a>
                                             </td>
+
                                         </tr>
                                         @endforeach 
                                     
