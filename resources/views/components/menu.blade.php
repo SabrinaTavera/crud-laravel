@@ -4,10 +4,21 @@
         <!-- Sidebar navigation-->
         <nav class="sidebar-nav">
             <ul id="sidebarnav">
-                <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="{{ route('colaborador.index') }}"
-                        aria-expanded="false"><i data-feather="home" class="feather-icon"></i><span
-                            class="hide-menu">Colaborador</span></a></li>
-                          
+             
+                <li class="sidebar-item"> 
+                    <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
+                        <i data-feather="box" class="feather-icon"></i>
+                        <span class="hide-menu">Colaborador </span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                        <li class="sidebar-item"><a href="{{ route('colaborador.index') }}" class="sidebar-link">
+                            <span class="hide-menu"> Ativos </span></a>
+                        </li>
+                        <li class="sidebar-item"><a href="{{ route('collaborator.inactive') }}" class="sidebar-link">
+                            <span class="hide-menu">Inativos</span></a>
+                            </li>  
+                    </ul>
+                </li>    
                 
                 <li class="list-divider"></li>
                 <li class="nav-small-cap"><span class="hide-menu">Aplicações</span></li>

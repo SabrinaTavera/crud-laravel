@@ -128,4 +128,13 @@ class CollaboratorController extends Controller
         return redirect()->action([CollaboratorController::class, 'index']);
         
     }
+
+    public function inactive(){
+ 
+        $contributors = DB::table('users')
+                ->whereNotNull('deleted_at')
+                ->get();
+        // dd($products);
+        return view('panel.colaborador.inactive', compact('contributors'));
+    }
 }
