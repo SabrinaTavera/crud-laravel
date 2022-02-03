@@ -137,4 +137,14 @@ class CollaboratorController extends Controller
         // dd($products);
         return view('panel.colaborador.inactive', compact('contributors'));
     }
+
+    public function active($id){
+
+        
+        $affected = DB::table('users')
+              ->where('id', $id)
+              ->update(['deleted_at' => null]);
+        
+        return redirect()->action([CollaboratorController::class, 'inactive']);
+    }
 }

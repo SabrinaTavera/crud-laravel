@@ -30,6 +30,8 @@ Route::get('/', function () {
 Route::get('panel', [App\Http\Controllers\CollaboratorController::class, 'index'])->name('colaboratos');
 Route::get('collaborator/apagar/{id}', [App\Http\Controllers\CollaboratorController::class, 'destroy'])->name('collaborator.destroy');
 Route::get('collaborator/inactive/index', [App\Http\Controllers\CollaboratorController::class, 'inactive'])->name('collaborator.inactive');
+Route::get('collaborator/active/{id}', [App\Http\Controllers\CollaboratorController::class, 'active'])->name('collaborator.active');
+
 
 Auth::routes();
 

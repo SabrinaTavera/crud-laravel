@@ -10,13 +10,9 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-9 col-sm-12">
-                            <h4 class="card-title">Colaboradores Cadastrados</h4>
+                            <h4 class="card-title">Colaboradores Inativos</h4>
                         </div>
-                        <div class="col-md-3 col-sm-12" style="display: flex; justify-content: flex-start">
-                            <a href="{{ route('colaborador.create') }}">
-                                <button type="button" id="btnCadastrarCliente" class="btn btn-info" >Cadastrar Colaborador</button>
-                            </a>
-                        </div>
+                      
                     </div>
                     
                     
@@ -50,17 +46,12 @@
                                                 
                                             </td>
                                             <td>
-                                                <a href="{{ route('colaborador.show', $collaborator->id) }}">
-                                                    <i class="icon-magnifier" ></i>
-                                                </a>
                                                 &nbsp;
-                                                <a href="{{ route('colaborador.edit', $collaborator->id) }}">
-                                                        <i  class="icon-note"></i>
-                                                </a>
+                                           
                                                 &nbsp;
-                                                <a href="{{ route('collaborator.destroy', $collaborator->id) }}">
-                                                    <i  class="icon-trash"></i>
-                                                </a>
+                                                    <a href="{{ route('collaborator.active', $collaborator->id) }}">
+                                                        <i  class="fas fa-low-vision"></i>
+                                                    </a>
                                             </td>
 
                                         </tr>
@@ -72,7 +63,7 @@
                             </div>
                          @else
                         <br>
-                        <h5> Não há colaboradores cadastrados </h5>
+                        <h5> Não há colaboradores inativos </h5>
                         
                         @endif
                        
