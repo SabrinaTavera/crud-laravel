@@ -51,7 +51,7 @@
                                             </td>
                                             <td>
                                                 <a href="{{ route('colaborador.show', $collaborator->id) }}">
-                                                    <i class="icon-magnifier" ></i>
+                                                    <i class="icon-magnifier" ></i> 
                                                 </a>
                                                 &nbsp;
                                                 <a href="{{ route('colaborador.edit', $collaborator->id) }}">

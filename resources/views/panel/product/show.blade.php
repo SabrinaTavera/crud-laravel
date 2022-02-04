@@ -19,8 +19,7 @@
                     <br>
                     <br>
                     <br>
-                    <form action="{{ route('product.store') }}" method="POST">
-                        @csrf 
+           
                         <div class="row">
                             <div class="col-md-2 col-sm-6 form-group">
                                     <h4 class="card-title">Nome do produto:</h4>

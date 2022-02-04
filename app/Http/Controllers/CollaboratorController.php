@@ -51,28 +51,32 @@ class CollaboratorController extends Controller
 
         $user_id = $user->create($request->all())->id;
 
-        
+        if($request['check-provider'] =='on'){
+          
+            $endereco1 = new  Address();
+            $endereco1->street  = $request->input('street');
+            $endereco1->number  = $request->input('number');
+            $endereco1->cep     = $request->input('cep');
+            $endereco1->city    = $request->input('city');
+            $endereco1->state   = $request->input('state');
+            $endereco1->user_id   = $user_id;
+            
+            
+            $endereco1->save();
+            
+            $endereco2 = new  Address();
+            $endereco2->street  = $request->input('street-2');
+            $endereco2->number  = $request->input('number-2');
+            $endereco2->cep     = $request->input('cep-2');
+            $endereco2->city    = $request->input('city-2');
+            $endereco2->state   = $request->input('state-2');
+            $endereco2->user_id   = $user_id;
+            
+            $endereco2->save();
+        }
+       
+    
 
-        $endereco1 = new  Address();
-        $endereco1->street  = $request->input('street');
-        $endereco1->number  = $request->input('number');
-        $endereco1->cep     = $request->input('cep');
-        $endereco1->city    = $request->input('city');
-        $endereco1->state   = $request->input('state');
-        $endereco1->user_id   = $user_id;
-        
-        
-        $endereco1->save();
-        
-        $endereco2 = new  Address();
-        $endereco2->street  = $request->input('street-2');
-        $endereco2->number  = $request->input('number-2');
-        $endereco2->cep     = $request->input('cep-2');
-        $endereco2->city    = $request->input('city-2');
-        $endereco2->state   = $request->input('state-2');
-        $endereco2->user_id   = $user_id;
-        
-        $endereco2->save();
         
         
         return redirect()->action([CollaboratorController::class, 'index']);
@@ -84,9 +88,22 @@ class CollaboratorController extends Controller
      * @param  \App\Models\Collaborator  $collaborator
      * @return \Illuminate\Http\Response
      */
-    public function show(Collaborator $collaborator)
+    public function show($id)
     {
-        //
+        $collaborator = User::find($id);
+        if(isset($collaborator)){
+            if($collaborator->tipo == 'f'){
+                
+                $addresses = DB::table('addresses')
+                ->where('user_id', '=', $collaborator->id)
+                ->get();
+                            
+              
+                return view('panel.colaborador.show',['collaborator' => $collaborator, 'addresses' => $addresses]);
+            }
+            return view('panel.colaborador.show',['collaborator' => $collaborator]);
+            
+        }
     }
 
     /**
@@ -95,9 +112,12 @@ class CollaboratorController extends Controller
      * @param  \App\Models\Collaborator  $collaborator
      * @return \Illuminate\Http\Response
      */
-    public function edit(Collaborator $collaborator)
+    public function edit($id)
     {
-        //
+        $collaborator = User::find($id);
+        if(isset($collaborator)){
+            return view('panel.colaborador.show', compact(['collaborator']));
+        }
     }
 
     /**
